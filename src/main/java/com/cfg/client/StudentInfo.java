@@ -2,8 +2,6 @@ package com.cfg.client;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,11 +10,24 @@ import javax.persistence.Table;
 public class StudentInfo {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int studentId;
 
 	@Column
 	private String studentName;
+
+	@Column
+	private String courseStatus;
+
+	public StudentInfo() {
+		super();
+	}
+
+	public StudentInfo(int studentId, String studentName, String courseStatus) {
+		super();
+		this.studentId = studentId;
+		this.studentName = studentName;
+		this.courseStatus = courseStatus;
+	}
 
 	public int getStudentId() {
 		return studentId;
@@ -34,14 +45,12 @@ public class StudentInfo {
 		this.studentName = studentName;
 	}
 
-	public StudentInfo(int studentId, String studentName) {
-		super();
-		this.studentId = studentId;
-		this.studentName = studentName;
+	public String getCourseStatus() {
+		return courseStatus;
 	}
 
-	public StudentInfo() {
-		super();
+	public void setCourseStatus(String courseStatus) {
+		this.courseStatus = courseStatus;
 	}
 
 	@Override
